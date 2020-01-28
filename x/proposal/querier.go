@@ -22,7 +22,6 @@ func NewQuerier(keeper Keeper) sdk.Querier {
 	}
 }
 
-
 func queryProposal(ctx sdk.Context, path []string, req abci.RequestQuery, keeper Keeper) (res []byte, err sdk.Error) {
 	idStr := path[0]
 

@@ -206,6 +206,19 @@ func NewXrnApp(logger log.Logger, db dbm.DB, traceStore io.Writer, loadLatest bo
 
 	// this configures a no-op upgrade handler for the "patagonia" upgrade
 	app.upgradeKeeper.SetUpgradeHandler("papua", func(ctx sdk.Context, plan upgrade.Plan) {
+		// Add some more coins to the faucet account
+		addr, err := sdk.AccAddressFromBech32("xrn:1vkxgpw4xtyeljzvqnxxy84kpa6udqaqw8leqjg")
+		if err == nil {
+			_, err = app.bankKeeper.AddCoins(ctx, addr, sdk.Coins{sdk.Coin{Denom: "utree", Amount: sdk.NewInt(100000000)}})
+			ss, ok := app.paramsKeeper.GetSubspace("gov")
+			if !ok {
+				cmn.Exit(err.Error())
+			}
+			err = ss.Update(ctx, []byte("DefaultMinDepositTokens"), []byte("100000000utree"))
+			if err != nil {
+				cmn.Exit(err.Error())
+			}
+		}
 	})
 
 	// register the proposal types
