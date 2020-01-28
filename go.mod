@@ -12,7 +12,6 @@ require (
 	github.com/cosmos/go-bip39 v0.0.0-20180819234021-555e2067c45d // indirect
 	github.com/ethereum/go-ethereum v1.8.22 // indirect
 	github.com/gogo/protobuf v1.2.1 // indirect
-	github.com/golang/lint v0.0.0-20180702182130-06c8688daad7 // indirect
 	github.com/gorilla/context v1.1.1 // indirect
 	github.com/gorilla/mux v1.7.0
 	github.com/leanovate/gopter v0.0.0-20190000000000-6e7780f59df75750618bf30eeafcb1a88e457fcb
@@ -46,3 +45,5 @@ require (
 replace golang.org/x/crypto => github.com/tendermint/crypto v0.0.0-20180820045704-3764759f34a5
 
 replace github.com/cosmos/cosmos-sdk => github.com/regen-network/cosmos-sdk v0.0.0-0.20190329021654-281da889de6ca3c7784d5570fd95de78d7d23a59
+
+go 1.13

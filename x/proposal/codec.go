@@ -12,4 +12,3 @@ func RegisterCodec(cdc *codec.Codec) {
 	cdc.RegisterConcrete(Proposal{}, "proposal/Proposal", nil)
 	cdc.RegisterInterface((*ProposalAction)(nil), nil)
 }
-

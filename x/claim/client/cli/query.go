@@ -95,4 +95,3 @@ func GetEvidenceQueryCmd(storeName string, cdc *codec.Codec) *cobra.Command {
 		},
 	}
 }
-
